@@ -307,3 +307,20 @@ Resources:
    
 
 ### STEP 2 ###
+
+![specbzip](https://github.com/user-attachments/assets/1c728406-7d95-4831-8395-a66883b96c06)
+
+![specmcf](https://github.com/user-attachments/assets/c63bd677-897d-428b-bc53-0db1d795a448)
+
+![spechmmer](https://github.com/user-attachments/assets/ba942c1e-6f9c-4380-838d-9dde1c4e0e0f)
+
+![specsjeng](https://github.com/user-attachments/assets/ddbec12d-b1e7-4212-9216-42d7b7b37d1a)
+
+![speclibm](https://github.com/user-attachments/assets/1e2d67d4-4a6a-4099-8ab1-86f168e9c0e0)
+
+
+
+
+
+
+
