@@ -359,22 +359,22 @@ Based on the results shown on the graphs and general information and knowledge r
 Βέλτιστη Αρχιτεκτονική για Κάθε Benchmark
 Με βάση τη σχέση κόστους και απόδοσης, οι βέλτιστες αρχιτεκτονικές είναι:
 
-1. **`limb`:** 
+1. **`libm`:** 
    - Προτεινόμενη Αρχιτεκτονική: `speclibm3`
    - **Κόστος:** 12.131625
    - **CPI:** 1.991390
 
-2. **`zip`:**
+2. **`bzip`:**
    - Προτεινόμενη Αρχιτεκτονική: `specbzip4`
    - **Κόστος:** 21.631625
    - **CPI:** 1.589715
 
-3. **`cmf`:**
+3. **`cmcf`:**
    - Προτεινόμενη Αρχιτεκτονική: `specmcf2`
    - **Κόστος:** 12.131625
    - **CPI:** 1.179751
 
-4. **`mer`:**
+4. **`hmmer`:**
    - Προτεινόμενη Αρχιτεκτονική: `spechmmer2`
    - **Κόστος:** 12.131625
    - **CPI:**  1.118699
@@ -384,6 +384,7 @@ Based on the results shown on the graphs and general information and knowledge r
    - **Κόστος:** 12.131625
    - **CPI:** 4.976535
 
+Η πιο βέλτιση είναι η spechmmer2. 
 ---
 
 
@@ -395,9 +396,6 @@ Based on the results shown on the graphs and general information and knowledge r
 - https://cs.stackexchange.com/questions/32149/what-are-system-clock-and-cpu-clock-and-what-are-their-functions
 - http://learning.gem5.org/book/part1/example_configs.html
 - https://bhagyashreeborate.wordpress.com/wp-content/uploads/2017/04/project-report.pdf
-- 
-
-
 
 
 
