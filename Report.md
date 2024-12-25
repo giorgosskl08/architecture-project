@@ -165,13 +165,13 @@
    c. Changed parameters and comparison of the 2 CPU models:
    
       * Different memory type:
-        * For the TimingSimpleCPU we used the "CPUDDR4_2400_8x8" memory type:
+        * For the TimingSimpleCPU the "CPUDDR4_2400_8x8" memory type was used:
           ```
           $ ./build/ARM/gem5.opt -d fib_results_TimingSimpleCPUDDR4_2400_8x8 configs/example/se.py --cpu-type=TimingSimpleCPU --mem-type=DDR4_2400_8x8 --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
           ```
           * There is a small decrement in the time of execution while using the "CPUDDR4_2400_8x8" memory type. A number of seconds simulated before = 0.000046 and after = 0.000045. 
           * Also a increment in the instruction rate is noticed: Simulator instruction rate before=573016  and after=601474. 
-        * For the MinorCPU we used the "SimpleMemory" memory type:
+        * For the MinorCPU the "SimpleMemory" memory type was used:
           ```
            $ ./build/ARM/gem5.opt -d fib_results_MinorCPUSimpleMemory configs/example/se.py --cpu-type=MinorCPU --mem-type=SimpleMemory --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
           ```
@@ -179,15 +179,15 @@
            * The simulated time seems to be decreased. Number of seconds simulated before = 0.000037 and after = 0.000030.
 
       * Different Operational Frequency:
-         * For the TimingSimpleCPU we set the frequency to 4GHz:
+         * For the TimingSimpleCPU the frequency was set to 4GHz:
             ```
             $ ./build/ARM/gem5.opt -d fib_results_TimingSimpleCPU4GHz configs/example/se.py --cpu-type=TimingSimpleCPU --cpu-clock=4GHz --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
              ```
-         * For the MinorCPU we set the frequency to 4GHz:
+         * For the MinorCPU the frequency was set to 4GHz:
             ```
             $ ../build/ARM/gem5.opt -d fib_results_MinorCPU4GHz configs/example/se.py --cpu-type=MinorCPU --cpu-clock=4GHz --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
              ```
-          The operational frequency refers to the processor's operational clock cycles per second. This means that by increasing the frequency the execution must be faster. We can confirm that by the results on the `stats.txt` file. More specifically we observed subduplication of the total simulated time in both CPU models with the quadruplication of the operational frequency.
+          The operational frequency refers to the processor's operational clock cycles per second. This means that by increasing the frequency the execution must be faster. We can confirm that by the results on the `stats.txt` file. More specifically a subduplication can be observed of the total simulated time in both CPU models with the quadruplication of the operational frequency.
 
         
 
@@ -322,9 +322,10 @@ Based on the results shown on the graphs and general information and knowledge r
 
 ### STEP 3 ###
 
-Η συνάρτηση κόστους που θα χρησιμοποιηθεί είναι:
+The cost function is the one below:
+**Cost = (L1d Size / 16kB) + (L1i Size / 16kB) + (L1 Assoc / 2)^1.4 + (L2 Size / 256kB) + (L2 Assoc / 2)^1.3 + (Line Size / 8B)**
 
-**Κόστος = (L1d Size / 16kB) + (L1i Size / 16kB) + (L1 Assoc / 2)^1.4 + (L2 Size / 256kB) + (L2 Assoc / 2)^1.3 + (Line Size / 8B)**
+Based on the results from the benchmark simulations, it was concluded that, in most cases, increasing all parameters contributes to a reduction in CPI and, consequently, to improved performance. However, excessive increases in the parameters lead to higher "costs," with some parameters being more costly than others. To make the parameters comparable, each parameter's impact was calculated using the appropriate coefficient. For example, L1 cache is more "expensive" than L2 cache, so a larger coefficient was applied to L1 cache size than to L2 cache size. As a result, doubling the L1 cache size leads to a significantly higher cost compared to doubling the L2 cache size. The impact of increasing cache line size is not as "expensive" as L1 size but still more costly than L2 size, which is reflected by the coefficients. Similarly, increasing associativity has a smaller impact on cost compared to changes in cache or cache line size. The effect of cache line size on performance is similar to that of cache size, regardless of associativity. As the cache line size increases, the impact of different associativity values on time and speed becomes more similar. In general, larger cache sizes tend to negatively affect speed and time performance. To compare the cost of each change, the initial cost was calculated using the original parameter values. Then, for each modification, the new cost was calculated based on the updated parameter values. The changes with the lowest cost and best performance were considered optimal.
 
 ---
 
@@ -356,35 +357,35 @@ Based on the results shown on the graphs and general information and knowledge r
 
 ---
 
-Βέλτιστη Αρχιτεκτονική για Κάθε Benchmark
-Με βάση τη σχέση κόστους και απόδοσης, οι βέλτιστες αρχιτεκτονικές είναι:
+Optimal Architecture for Each Benchmark
+Based on the cost-performance relationship, the optimal architectures are:
 
-1. **`libm`:** 
-   - Προτεινόμενη Αρχιτεκτονική: `speclibm3`
-   - **Κόστος:** 12.131625
-   - **CPI:** 1.991390
+1. **`libm`:**  
+   - Recommended Architecture: `speclibm3`  
+   - **Cost:** 12.131625  
+   - **CPI:** 1.991390  
 
-2. **`bzip`:**
-   - Προτεινόμενη Αρχιτεκτονική: `specbzip4`
-   - **Κόστος:** 21.631625
-   - **CPI:** 1.589715
+2. **`bzip`:**  
+   - Recommended Architecture: `specbzip4`  
+   - **Cost:** 21.631625  
+   - **CPI:** 1.589715  
 
-3. **`cmcf`:**
-   - Προτεινόμενη Αρχιτεκτονική: `specmcf2`
-   - **Κόστος:** 12.131625
-   - **CPI:** 1.179751
+3. **`cmcf`:**  
+   - Recommended Architecture: `specmcf2`  
+   - **Cost:** 12.131625  
+   - **CPI:** 1.179751  
 
-4. **`hmmer`:**
-   - Προτεινόμενη Αρχιτεκτονική: `spechmmer2`
-   - **Κόστος:** 12.131625
-   - **CPI:**  1.118699
+4. **`hmmer`:**  
+   - Recommended Architecture: `spechmmer2`  
+   - **Cost:** 12.131625  
+   - **CPI:** 1.118699  
 
-5. **`sjeng`:**
-   - Προτεινόμενη Αρχιτεκτονική: `sjeng2`
-   - **Κόστος:** 12.131625
-   - **CPI:** 4.976535
+5. **`sjeng`:**  
+   - Recommended Architecture: `sjeng2`  
+   - **Cost:** 12.131625  
+   - **CPI:** 4.976535  
 
-Η πιο βέλτιση είναι η spechmmer2. 
+The most optimal architecture is **spechmmer2**.
 
 
 ## Βibliography
