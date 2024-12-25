@@ -197,6 +197,8 @@ Resources:
 
 # Advanced Computer Architecture Project - Part 2
 
+### STEP 1 ###
+ 
 1. The basic parameters derived from `config.ini`:
      - L1 instruction cache:
        ```
@@ -235,15 +237,45 @@ Resources:
    | L2 cache miss rates | 0.282163 | 0.055046 | 0.077760 | 0.999972 | 0.999944 |
 
    
-    ![execution_time](https://github.com/user-attachments/assets/58911035-7e6e-46b1-be0e-cb1488eddd58)
+   ![execution_time](https://github.com/user-attachments/assets/58911035-7e6e-46b1-be0e-cb1488eddd58)
 
-    ![cpi](https://github.com/user-attachments/assets/efb0d3c9-f5d1-4a1b-8552-8564d158a73e)
+   ![cpi](https://github.com/user-attachments/assets/efb0d3c9-f5d1-4a1b-8552-8564d158a73e)
 
    ![icache](https://github.com/user-attachments/assets/6a2bd62e-9f50-4899-b155-4573528f11e5)
 
-    ![dcache](https://github.com/user-attachments/assets/ce067f71-b390-4b71-822f-f8916712524e)
+   ![dcache](https://github.com/user-attachments/assets/ce067f71-b390-4b71-822f-f8916712524e)
 
    ![l2cache](https://github.com/user-attachments/assets/34579404-e692-484d-b5d3-c0bf77a7a266)
 
+   From the graphs, we observe that the Execution Time and CPI are higher for the `sjeng` and `speclbm` benchmarks. This occurs because these two benchmarks are the only ones with high miss rates in both the L1 data cache and L2 cache. When the processor cannot find the requested data in the L1 or L2 cache (resulting in a cache miss), it must fetch the data from the main memory, which takes significantly longer. This delay increases the execution time. The time wasted waiting for data to be fetched from main memory also increases the number of cycles needed to execute instructions, leading to a higher CPI.
 
+3. For all benchmarks the values were equal with the changes in the frequency:
+   * Default frequency
+         * System cpu clock
+          ```python 
+          system.cpu_clk_domain.clock                       500                       # Clock period in ticks
+          ```
+         * System clock
+          ```python 
+          system.clk_domain.clock                          1000                       # Clock period in ticks
+          ```
+      * 1GHz
+         * System cpu clock
+          ```python 
+          system.cpu_clk_domain.clock                       1000                       # Clock period in ticks
+          ```
+         * System clock
+          ```python 
+          system.clk_domain.clock                          1000                       # Clock period in ticks
+          ```
+      * 3GHz
+         * System cpu clock
+          ```python 
+          system.cpu_clk_domain.clock                       333                       # Clock period in ticks
+          ```
+         * System clock
+          ```python 
+          system.clk_domain.clock                          1000                       # Clock period in ticks
+          ```
 
+     
