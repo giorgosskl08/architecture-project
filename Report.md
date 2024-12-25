@@ -353,31 +353,31 @@ Based on the results shown on the graphs and general information and knowledge r
 | sjeng1    | 64            | 128           | 512          | 1        | 2        | 64        | 9.005625  | 7.041210  |
 | sjeng2    | 64            | 128           | 512          | 2        | 4        | 128       | 12.131625 | 4.976535  |
 | sjeng3    | 64            | 128           | 2048         | 2        | 4        | 128       | 20.131625 | 4.974881  |
- | specmcf | spechmmer | sjeng | speclibm
+
 ---
 
 Βέλτιστη Αρχιτεκτονική για Κάθε Benchmark
 Με βάση τη σχέση κόστους και απόδοσης, οι βέλτιστες αρχιτεκτονικές είναι:
 
 1. **`limb`:** 
-   - Προτεινόμενη Αρχιτεκτονική: `limb3`
+   - Προτεινόμενη Αρχιτεκτονική: `speclibm3`
    - **Κόστος:** 12.131625
    - **CPI:** 1.991390
 
 2. **`zip`:**
-   - Προτεινόμενη Αρχιτεκτονική: `zip4`
+   - Προτεινόμενη Αρχιτεκτονική: `specbzip4`
    - **Κόστος:** 21.631625
    - **CPI:** 1.589715
 
 3. **`cmf`:**
-   - Προτεινόμενη Αρχιτεκτονική: `cmf2`
+   - Προτεινόμενη Αρχιτεκτονική: `specmcf2`
    - **Κόστος:** 12.131625
    - **CPI:** 1.179751
 
 4. **`mer`:**
-   - Προτεινόμενη Αρχιτεκτονική: `mer3`
-   - **Κόστος:** 14.131625
-   - **CPI:** 1.112977
+   - Προτεινόμενη Αρχιτεκτονική: `spechmmer2`
+   - **Κόστος:** 12.131625
+   - **CPI:**  1.118699
 
 5. **`sjeng`:**
    - Προτεινόμενη Αρχιτεκτονική: `sjeng2`
@@ -394,6 +394,8 @@ Based on the results shown on the graphs and general information and knowledge r
 - https://nitish2112.github.io/post/gem5-memory-model/
 - https://cs.stackexchange.com/questions/32149/what-are-system-clock-and-cpu-clock-and-what-are-their-functions
 - http://learning.gem5.org/book/part1/example_configs.html
+- https://bhagyashreeborate.wordpress.com/wp-content/uploads/2017/04/project-report.pdf
+- 
 
 
 
