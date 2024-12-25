@@ -114,20 +114,16 @@
 4. Different in-order CPU models on gem5:
    
      i. SimpleCPU:  
-      * BaseSimpleCPU: 
-
-    > This version of SimpleCPU is a single-cycle CPU which means it can execute only one instruction in a cycle. It can be inherited by AtomicSimpleCPU and TimingSimpleCPU. It can not be run on its own. One of the inheriting classes, either AtomicSimpleCPU or TimingSimpleCPU must be used. BaseSimpleCPU defines functions, common for SimpleCPU models, for checking for interrupts, controlling setups and actions, and advancing the PC into the next instruction, holding the architected state. It is also responsible for the ExecContext interface which is used by the instructions to access the CPU.
- 
+      * BaseSimpleCPU:
+        > Is a single-cycle CPU, meaning it can execute only one instruction per cycle. It acts as the foundational class for the AtomicSimpleCPU and TimingSimpleCPU but cannot be used on its own. The class defines common functions for SimpleCPU models, such as checking for interrupts, controlling setups and actions, and advancing the Program Counter (PC) to the next instruction while maintaining the architected state. It also implements the ExecContext interface, which instructions use to access the CPU.
       * AtomicSimpleCPU:
-     
-     >In this version of SimpleCPU atomic memory accesses are used. It derives from BaseSimpleCPU and uses functions to read and write memory, as well as to tick,  meaning what happens in every CPU cycle. Also, it determines the overall cache access time using the latency estimates from the atomic accesses. Lastly, the AtomicSimpleCPU defines which port is used to connect to memory, and attaches the CPU to the cache.  
-       
+        > Extends BaseSimpleCPU and utilizes atomic memory accesses. This CPU model reads and writes memory atomically and uses functions to handle the actions performed in each CPU cycle. It determines the overall cache access time using latency estimates from the atomic accesses. Moreover, AtomicSimpleCPU defines the port used to connect to memory and attaches the CPU to the cache, ensuring smooth memory operations.
       * TimingSimpleCPU:
-
-    >This version of SimpleCPU uses timing memory accesses. Timing accesses are the most detailed access but they lack in speed (delay). With the sending of a request function at some time, a response function or a number of functions are scheduled at some time in the future to be executed. It derives from BaseSimpleCPU and and implements the same set of functions as the aforementioned model, AtomicSimpleCPU. It is responsible for handling the response from memory to the accesses sent out.  If the response is a NACK the procedure gets repeated. It, finally, defines the port that is used to hook up to memory and connects the CPU to the cache.
-      
-    ii. Minor CPU:
-    >This in-order processor model has a standard pipeline, but its data structures and execute behavior are configurable. It provides a framework to match the model with a similar processor on a micro-architectural level which has strict in-order execution behavior and visualizes the position of an instruction in the pipeline using the MinorTrace/minorview.py format/too. 
+        > Another extension of BaseSimpleCPU, but it uses timing memory accesses, which are more detailed but slower due to delay. This model schedules response functions for future execution after sending out a request. TimingSimpleCPU handles responses from memory to the sent accesses, repeating procedures if a NACK is received. It also defines the port used to connect to memory and connects the CPU to the cache, much like AtomicSimpleCPU.
+        
+      ii. Minor CPU:
+   
+   > An in-order processor model with a standard pipeline, but its data structures and execution behavior are configurable. This model provides a framework to match the micro-architectural level of a similar processor with strict in-order execution behavior. It also visualizes the position of an instruction in the pipeline using the MinorTrace/minorview.py format/tool, helping users understand the pipeline stages and execution flow.
 
    a. Commands for the `fibonacci.c` file:
 
