@@ -166,13 +166,13 @@
    c. Changed parameters and comparison of the 2 CPU models:
    
       * Different memory type:
-        * For the TimingSimpleCPU we used the "LPDDR2_S4_1066_1x32" memory type:
+        * For the TimingSimpleCPU we used the "CPUDDR4_2400_8x8" memory type:
           ```
           $ ./build/ARM/gem5.opt -d fib_results_TimingSimpleCPUDDR4_2400_8x8 configs/example/se.py --cpu-type=MinorCPU --mem-type=DDR4_2400_8x8 --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
           ```
           * There is a small decrement in the time of execution while using the "LPDDR2_S4_1066_1x32" memory type. Number of seconds simulated before = 0.000046 and after = 0.000036. 
           * Also a decrement in the instruction rate is noticed: Simulator instruction rate before=573016  and after=157590. 
-        * For the MinorCPU we used the "SimpleMemory" memory type:
+        * For the MinorCPU we used the "NonCachingSimpleCPU" memory type:
           ```
            $ ./build/ARM/gem5.opt -d fib_results_MinorCPUNonCachingSimpleCPU configs/example/se.py --cpu-type=NonCachingSimpleCPU --mem-type=SimpleMemory --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
           ```
