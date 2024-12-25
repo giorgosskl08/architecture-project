@@ -322,3 +322,18 @@ Based on the results shown on the graphs and general information and knowledge r
 ### STEP 3 ###
 
 
+### Βibliography ###
+- https://stackoverflow.com/questions/58554232/what-is-the-difference-between-the-gem5-cpu-models-and-which-one-is-more-accurat
+- https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU
+- https://www.gem5.org/documentation/general_docs/cpu_models/minor_cpu
+- https://nitish2112.github.io/post/gem5-memory-model/
+- https://cs.stackexchange.com/questions/32149/what-are-system-clock-and-cpu-clock-and-what-are-their-functions
+- http://learning.gem5.org/book/part1/example_configs.html
+
+
+
+
+
+
+
+
