@@ -228,7 +228,7 @@ Resources:
         cache_line_size=64
        ```
 2. We are deriving the results from the `stats.txt` files:
-   | Parameters | specbzip | specmcf | spechmmer | sjeng | speclbm |
+   | Parameters | specbzip | specmcf | spechmmer | sjeng | speclibm |
    | ---------- | -------- | ------- | ----- | ------- | ------ |
    | Execution time (`sim_sec`) | 0.083982 | 0.064955 | 0.059396 | 0.513528 | 0.174641 | 
    | CPI | 1.679650 | 1.299095 | 1.187917 | 10.270554 | 3.493415 | 
@@ -247,7 +247,7 @@ Resources:
 
    ![l2cache](https://github.com/user-attachments/assets/34579404-e692-484d-b5d3-c0bf77a7a266)
 
-   From the graphs, we observe that the Execution Time and CPI are higher for the `sjeng` and `speclbm` benchmarks. This occurs because these two benchmarks are the only ones with high miss rates in both the L1 data cache and L2 cache. When the processor cannot find the requested data in the L1 or L2 cache (resulting in a cache miss), it must fetch the data from the main memory, which takes significantly longer. This delay increases the execution time. The time wasted waiting for data to be fetched from main memory also increases the number of cycles needed to execute instructions, leading to a higher CPI.
+   From the graphs, we observe that the Execution Time and CPI are higher for the `sjeng` and `speclibm` benchmarks. This occurs because these two benchmarks are the only ones with high miss rates in both the L1 data cache and L2 cache. When the processor cannot find the requested data in the L1 or L2 cache (resulting in a cache miss), it must fetch the data from the main memory, which takes significantly longer. This delay increases the execution time. The time wasted waiting for data to be fetched from main memory also increases the number of cycles needed to execute instructions, leading to a higher CPI.
 
 3. For all benchmarks the values were equal with the changes in the frequency:
      * Default frequency
