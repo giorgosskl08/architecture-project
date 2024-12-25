@@ -170,7 +170,7 @@
           ```
           $ ./build/ARM/gem5.opt -d fib_results_TimingSimpleCPUDDR4_2400_8x8 configs/example/se.py --cpu-type=TimingSimpleCPU --mem-type=DDR4_2400_8x8 --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
           ```
-          * There is a small decrement in the time of execution while using the "LPDDR2_S4_1066_1x32" memory type. A number of seconds simulated before = 0.000046 and after = 0.000045. 
+          * There is a small decrement in the time of execution while using the "CPUDDR4_2400_8x8" memory type. A number of seconds simulated before = 0.000046 and after = 0.000045. 
           * Also a increment in the instruction rate is noticed: Simulator instruction rate before=573016  and after=601474. 
         * For the MinorCPU we used the "SimpleMemory" memory type:
           ```
