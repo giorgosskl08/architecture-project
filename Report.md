@@ -175,7 +175,7 @@
            $ ./build/ARM/gem5.opt -d fib_results_MinorCPUSimpleMemory configs/example/se.py --cpu-type=MinorCPU --mem-type=SimpleMemory --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
           ```
            * The instruction rate has increased a lot in with the use of the "SimpleMemory" type. Specifically, simulator instruction rate before=147368  and after=335773.
-           * The simulated time seems to be slighttly decreased. Number of seconds simulated before = 0.09 and after = 0.04. 
+           * The simulated time seems to be slighttly decreased. Number of seconds simulated before = 0.000037 and after = 0.000030. 
            * Finally this memory type seems to have an small affect on the indirect misses since they are increased by 1.
 
       * Different Operational Frequency:
