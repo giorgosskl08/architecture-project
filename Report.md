@@ -1,4 +1,13 @@
-# Advanced Computer Architecture Project - Part 1
+# Advanced Computer Architecture Project
+
+## Table of Contents 
+- [Advanced Computer Architecture Project - Part 1](#Advanced Computer Architecture Project - Part 1)
+- [Advanced Computer Architecture Project - Part 2](#Advanced Computer Architecture Project - Part 2)
+- [Bibliography](#Bibliography)
+- 
+
+
+## Advanced Computer Architecture Project - Part 1
 
 1. Based on the contents of the `starter_se.py` file, assumptions regarding the characteristics that have been passed to gem5 after running the `HelloWorld` program can be made. More specifically:
    * **CPU Type = "atomic"** (the type of the cpu is defined in line 192:
@@ -190,7 +199,7 @@
 
         
 
-# Advanced Computer Architecture Project - Part 2
+## Advanced Computer Architecture Project - Part 2
 
 ### STEP 1 ###
  
@@ -322,7 +331,7 @@ Based on the results shown on the graphs and general information and knowledge r
 ### STEP 3 ###
 
 
-# Βibliography
+## Βibliography
 - https://stackoverflow.com/questions/58554232/what-is-the-difference-between-the-gem5-cpu-models-and-which-one-is-more-accurat
 - https://www.gem5.org/documentation/general_docs/cpu_models/SimpleCPU
 - https://www.gem5.org/documentation/general_docs/cpu_models/minor_cpu
