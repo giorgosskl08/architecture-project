@@ -83,7 +83,7 @@
          system.cpu_cluster.cpus.committedOps             5831                       # Number of ops (including micro ops) committed
   
 
-   The reason that they are not equal is that "committedInsts" is the architectural number of assembly instructions executed while "commmittedOps" is the number of micro-operations. Each instruction can expand to multiple microoperations, so this number is always greater or equal to committedInsts.
+     The reason that they are not equal is that "committedInsts" is the architectural number of assembly instructions executed while "commmittedOps" is the number of micro-operations. Each instruction can expand to multiple microoperations, so this number is always greater or equal to committedInsts.
   
       The number of instructions simulated is again 5027:
       
@@ -318,5 +318,7 @@ Based on the results shown on the graphs and general information and knowledge r
 - Cache Size: Larger L1 and L2 caches help benchmarks with larger working sets by reducing memory misses.
 - Associativity: Benchmarks with higher conflict misses benefit from increased associativity.
 - Cache Line Size: Benchmarks with sequential memory access patterns benefit greatly from increased cache line size.
+
+### STEP 3 ###
 
 
