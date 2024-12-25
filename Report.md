@@ -197,3 +197,41 @@ Resources:
 
 # Advanced Computer Architecture Project - Part 2
 
+1. The basic parameters derived from `config.ini`:
+     - L1 instruction cache:
+       ```
+       [system.cpu.icache]
+        type=Cache
+        assoc=2
+        size=32768
+       ```
+     - L1 data cache
+       ```
+       [system.cpu.dcache]
+        type=Cache
+        assoc=2
+        size=65536
+       ```
+     - L2 cache
+       ```
+        [system.l2]
+        type=Cache
+        assoc=8
+        size=2097152
+       ```
+     - Cache Line
+       ```
+        [system]
+        type=System
+        cache_line_size=64
+       ```
+2. We are deriving the results from the `stats.txt` files:
+   | Parameters | specbzip | specmcf | spechmmer | sjeng | speclbm |
+   | ---------- | -------- | ------- | ----- | ------- | ------ |
+   | Execution time (`sim_sec`) | 0.083982 | 0.064955 | 0.059396 | 0.513528 | 0.174641 | 
+   | CPI | 1.679650 | 1.299095 | 1.187917 | 10.270554 | 3.493415 | 
+   | L1 Instruction cache miss rates | 0.000077 | 0.023612 | 0.000221 | 0.000020 | 0.000094 |
+   | L1 Data cache miss rates | 0.014798 | 0.002109 | 0.001637 | 0.121831 | 0.060972 |
+   | L2 cache miss rates | 0.282163 | 0.055046 | 0.077760 | 0.999972 | 0.999944 |
+
+    
