@@ -56,7 +56,7 @@ fontsize=14;
 label="redirect_paths0 \n: RedirectPath";
 shape=Mrecord;
 style="rounded, filled";
-tooltip="app_path&#61;/proc&#10;\eventq_index&#61;0&#10;\host_paths&#61;fib_results_MinorCPUSimpleMemory/fs/proc";
+tooltip="app_path&#61;/proc&#10;\eventq_index&#61;0&#10;\host_paths&#61;fib_results_TimingSimpleCPULPDDR2_S4_1066_1x32/fs/proc";
 }
 
 subgraph cluster_system_redirect_paths1 {
@@ -68,7 +68,7 @@ fontsize=14;
 label="redirect_paths1 \n: RedirectPath";
 shape=Mrecord;
 style="rounded, filled";
-tooltip="app_path&#61;/sys&#10;\eventq_index&#61;0&#10;\host_paths&#61;fib_results_MinorCPUSimpleMemory/fs/sys";
+tooltip="app_path&#61;/sys&#10;\eventq_index&#61;0&#10;\host_paths&#61;fib_results_TimingSimpleCPULPDDR2_S4_1066_1x32/fs/sys";
 }
 
 subgraph cluster_system_redirect_paths2 {
@@ -80,7 +80,7 @@ fontsize=14;
 label="redirect_paths2 \n: RedirectPath";
 shape=Mrecord;
 style="rounded, filled";
-tooltip="app_path&#61;/tmp&#10;\eventq_index&#61;0&#10;\host_paths&#61;fib_results_MinorCPUSimpleMemory/fs/tmp";
+tooltip="app_path&#61;/tmp&#10;\eventq_index&#61;0&#10;\host_paths&#61;fib_results_TimingSimpleCPULPDDR2_S4_1066_1x32/fs/tmp";
 }
 
 subgraph cluster_system_redirect_paths3 {
@@ -137,10 +137,10 @@ fillcolor="#5e5958";
 fontcolor="#000000";
 fontname=Arial;
 fontsize=14;
-label="mem_ctrls \n: SimpleMemory";
+label="mem_ctrls \n: DDR4_2400_8x8";
 shape=Mrecord;
 style="rounded, filled";
-tooltip="bandwidth&#61;73.000000&#10;\clk_domain&#61;system.clk_domain&#10;\conf_table_reported&#61;true&#10;\default_p_state&#61;UNDEFINED&#10;\eventq_index&#61;0&#10;\in_addr_map&#61;true&#10;\kvm_map&#61;true&#10;\latency&#61;30000&#10;\latency_var&#61;0&#10;\null&#61;false&#10;\p_state_clk_gate_bins&#61;20&#10;\p_state_clk_gate_max&#61;1000000000000&#10;\p_state_clk_gate_min&#61;1000&#10;\power_model&#61;&#10;\range&#61;0:536870911";
+tooltip="IDD0&#61;0.048&#10;\IDD02&#61;0.003&#10;\IDD2N&#61;0.034&#10;\IDD2N2&#61;0.0&#10;\IDD2P0&#61;0.0&#10;\IDD2P02&#61;0.0&#10;\IDD2P1&#61;0.025&#10;\IDD2P12&#61;0.0&#10;\IDD3N&#61;0.043&#10;\IDD3N2&#61;0.003&#10;\IDD3P0&#61;0.0&#10;\IDD3P02&#61;0.0&#10;\IDD3P1&#61;0.037&#10;\IDD3P12&#61;0.0&#10;\IDD4R&#61;0.135&#10;\IDD4R2&#61;0.0&#10;\IDD4W&#61;0.123&#10;\IDD4W2&#61;0.0&#10;\IDD5&#61;0.25&#10;\IDD52&#61;0.0&#10;\IDD6&#61;0.03&#10;\IDD62&#61;0.0&#10;\VDD&#61;1.2&#10;\VDD2&#61;2.5&#10;\activation_limit&#61;4&#10;\addr_mapping&#61;RoRaBaCoCh&#10;\bank_groups_per_rank&#61;4&#10;\banks_per_rank&#61;16&#10;\burst_length&#61;8&#10;\clk_domain&#61;system.clk_domain&#10;\conf_table_reported&#61;true&#10;\default_p_state&#61;UNDEFINED&#10;\device_bus_width&#61;8&#10;\device_rowbuffer_size&#61;1024&#10;\device_size&#61;1073741824&#10;\devices_per_rank&#61;8&#10;\dll&#61;true&#10;\enable_dram_powerdown&#61;false&#10;\eventq_index&#61;0&#10;\in_addr_map&#61;true&#10;\kvm_map&#61;true&#10;\max_accesses_per_row&#61;16&#10;\mem_sched_policy&#61;frfcfs&#10;\min_writes_per_switch&#61;16&#10;\null&#61;false&#10;\p_state_clk_gate_bins&#61;20&#10;\p_state_clk_gate_max&#61;1000000000000&#10;\p_state_clk_gate_min&#61;1000&#10;\page_policy&#61;open_adaptive&#10;\power_model&#61;&#10;\qos_masters&#61;               &#10;\qos_policy&#61;Null&#10;\qos_priorities&#61;1&#10;\qos_priority_escalation&#61;false&#10;\qos_q_policy&#61;fifo&#10;\qos_syncro_scheduler&#61;false&#10;\qos_turnaround_policy&#61;Null&#10;\range&#61;0:536870911&#10;\ranks_per_channel&#61;2&#10;\read_buffer_size&#61;64&#10;\static_backend_latency&#61;10000&#10;\static_frontend_latency&#61;10000&#10;\tBURST&#61;3332&#10;\tCCD_L&#61;5000&#10;\tCCD_L_WR&#61;5000&#10;\tCK&#61;833&#10;\tCL&#61;14160&#10;\tCS&#61;1666&#10;\tRAS&#61;32000&#10;\tRCD&#61;14160&#10;\tREFI&#61;7800000&#10;\tRFC&#61;350000&#10;\tRP&#61;14160&#10;\tRRD&#61;3332&#10;\tRRD_L&#61;4900&#10;\tRTP&#61;7500&#10;\tRTW&#61;1666&#10;\tWR&#61;15000&#10;\tWTR&#61;5000&#10;\tXAW&#61;21000&#10;\tXP&#61;6000&#10;\tXPDLL&#61;0&#10;\tXS&#61;340000&#10;\tXSDLL&#61;0&#10;\write_buffer_size&#61;128&#10;\write_high_thresh_perc&#61;85&#10;\write_low_thresh_perc&#61;50";
 system_mem_ctrls_port [color="#000000", fillcolor="#4b4746", fontcolor="#000000", fontname=Arial, fontsize=14, label=port, shape=Mrecord, style="rounded, filled"];
 }
 
