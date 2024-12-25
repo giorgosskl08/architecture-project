@@ -77,24 +77,26 @@
       * sim_insts: the number of instructions that were simulated
       * host_inst_rate: the rate of instructions simulated per second
 
-   c. From `stats.txt` the number of committed instructions is 5027 and of committed operations is 5831.
-  
-         
-         system.cpu_cluster.cpus.committedInsts           5027                       # Number of instructions committed
-  
-         system.cpu_cluster.cpus.committedOps             5831                       # Number of ops (including micro ops) committed
-  
-
-     The reason that they are not equal is that "committedInsts" is the architectural number of assembly instructions executed while "commmittedOps" is the number of micro-operations. Each instruction can expand to multiple microoperations, so this number is always greater or equal to committedInsts.
-  
-      The number of instructions simulated is again 5027:
+   c.
+       From `stats.txt` the number of committed instructions is 5027 and of committed operations is 5831.
       
-          sim_insts                                        5027                       # Number of instructions simulated
-  
-      The fact that the simulated instructions and committed instruction are the same signifies that all instructions are committed. An instruction commits only if it and all instructions before it have been completed successfully.
+             
+             system.cpu_cluster.cpus.committedInsts           5027                       # Number of instructions committed
+      
+             system.cpu_cluster.cpus.committedOps             5831                       # Number of ops (including micro ops) committed
+      
+    
+     The reason that they are not equal is that "committedInsts" is the architectural number of assembly instructions executed while "commmittedOps" is the number of micro-operations. Each instruction can expand to multiple microoperations, so this number is always greater or equal to committedInsts.
+      
+     The number of instructions simulated is again 5027:
+          
+              sim_insts                                        5027                       # Number of instructions simulated
+      
+   The fact that the simulated instructions and committed instruction are the same signifies that all instructions are committed. An instruction commits only if it and all instructions before it have been completed successfully.
        
 
-   d.  from `starter_se.py` and because the type of the CPU is "minor" the L2 Cache class is "devices.L2".
+   d.
+       From `starter_se.py` and because the type of the CPU is "minor" the L2 Cache class is "devices.L2".
        From `stats.txt` the L2 accesses are the following:
 
        
@@ -105,7 +107,7 @@
        system.cpu_cluster.l2.overall_accesses::total          474                       # number of overall (read+write) accesses
         
 
-      The number of times that the L2 cache was accessed is equal to the number of times L1 was accessed and a miss occurs which is 147 (as far as data is concerned):
+   The number of times that the L2 cache was accessed is equal to the number of times L1 was accessed and a miss occurs which is 147 (as far as data is concerned):
 
        
         system.cpu_cluster.cpus.branchPred.indirectMisses          147                       # Number of indirect misses.
