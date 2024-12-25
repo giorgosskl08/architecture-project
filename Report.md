@@ -103,7 +103,7 @@
        system.cpu_cluster.l2.overall_accesses::total          474                       # number of overall (read+write) accesses
         
 
-      The number of times that the L2 cache was accessed is equal to the muner of times L1 was accessed and a miss occured which is 147 (as far as data is concerned):
+      The number of times that the L2 cache was accessed is equal to the number of times L1 was accessed and a miss occurs which is 147 (as far as data is concerned):
 
        
         system.cpu_cluster.cpus.branchPred.indirectMisses          147                       # Number of indirect misses.
