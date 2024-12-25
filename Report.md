@@ -146,16 +146,17 @@
         sim_seconds                                  0.000046                       # Number of seconds simulated
         ```
 
-   b. Comparing the simulations run with MinorCPU and TimingSimpleCPU we noticed the following:
-     * Differences:  
-       * host_seconds: 0.02 for TimingSimpleCPU and 0.09 for MinorCPU  
-       * sim_seconds: 0.000046 for TimingSimpleCPU and 0,000037 for MinorCPU  
-       * Number of indirect misses: 137 for MinorCPU and it is not mentioned for TimingSimpleCPU  
-     * Similarities:
-       * sim_freq: 1000000000000 for both CPUs
-       * host_mem_usage: 674144 for TimingSimpleCPU and 678756 for MinorCPU
-       * Number of instructions committed: 13196 for TimingSimpleCPU and 13249 for MinorCPU  
-    
+   b.
+   | Parameter | TimingSimpleCPU | MinorCPU |
+   | --------| ------ | ----- |
+   | host_seconds | 0.02 | 0.09 | 
+   | sim_seconds | 0.000046 |  0.000037 |
+   | Number of indirect misses | --- | 137 |
+   | sim_freq | 1000000000000 | 1000000000000 |
+   | host_mem_usage | 674144 |  678756 |
+   | Number of instructions committed | 13196 | 13249 |
+
+       
     The differences are mostly related to time. They are justified considering the fact that TimingSimpleCPU lacks speed in comparison to MinorCPU.  
     The similarities are also justified because they concern a) the frequency which is determined by us, b) the memory used by the host, and the number of instructions committed which depend on our program and are not influenced by the CPU.
 
@@ -327,30 +328,30 @@ Based on the results shown on the graphs and general information and knowledge r
 
 | Benchmark | L1d Size (kB) | L1i Size (kB) | L2 Size (kB) | L1 Assoc | L2 Assoc | Line Size | Cost      | CPI       |
 |-----------|---------------|---------------|--------------|----------|----------|-----------|-----------|-----------|
-| limb0     | 32            | 64            | 512          | 1        | 2        | 64        | 6.305625  | 2.650259  |
-| limb1     | 64            | 128           | 512          | 2        | 2        | 64        | 9.005625  | 2.631263  |
-| limb2     | 64            | 128           | 512          | 2        | 4        | 64        | 9.631625  | 2.631263  |
-| limb3     | 64            | 128           | 512          | 2        | 4        | 128       | 12.131625 | 1.991390  |
-| limb4     | 64            | 128           | 1024         | 2        | 4        | 128       | 14.131625 | 1.991078  |
-| zip0      | 32            | 64            | 512          | 1        | 2        | 64        | 6.305625  | 1.589715  |
-| zip1      | 64            | 128           | 512          | 4        | 2        | 64        | 10.505625 | 1.724184  |
-| zip2      | 64            | 128           | 512          | 4        | 2        | 128       | 13.005625 | 1.635832  |
-| zip3      | 64            | 128           | 2048         | 4        | 2        | 128       | 21.005625 | 1.594113  |
-| zip4      | 64            | 128           | 2048         | 4        | 4        | 128       | 21.631625 | 1.589715  |
-| zip5      | 128           | 128           | 4096         | 4        | 4        | 128       | 30.631625 | 1.556339  |
-| cmf0      | 32            | 64            | 512          | 1        | 2        | 64        | 6.305625  | 1.185033  |
-| cmf1      | 64            | 128           | 512          | 2        | 2        | 64        | 9.005625  | 1.185033  |
-| cmf2      | 64            | 128           | 512          | 2        | 4        | 128       | 12.131625 | 1.179751  |
-| cmf3      | 64            | 128           | 2048         | 2        | 4        | 128       | 20.131625 | 1.179751  |
-| mer0      | 32            | 64            | 512          | 1        | 2        | 64        | 6.305625  | 1.176616  |
-| mer1      | 64            | 128           | 512          | 1        | 2        | 64        | 9.005625  | 1.143930  |
-| mer2      | 64            | 128           | 512          | 2        | 2        | 128       | 12.131625 | 1.118699  |
-| mer3      | 64            | 128           | 512          | 2        | 4        | 128       | 14.131625 | 1.112977  |
+| speclibm0     | 32            | 64            | 512          | 1        | 2        | 64        | 6.305625  | 2.650259  |
+| speclibm1     | 64            | 128           | 512          | 2        | 2        | 64        | 9.005625  | 2.631263  |
+| speclibm2     | 64            | 128           | 512          | 2        | 4        | 64        | 9.631625  | 2.631263  |
+| speclibm3     | 64            | 128           | 512          | 2        | 4        | 128       | 12.131625 | 1.991390  |
+| speclibm4     | 64            | 128           | 1024         | 2        | 4        | 128       | 14.131625 | 1.991078  |
+| specbzip0      | 32            | 64            | 512          | 1        | 2        | 64        | 6.305625  | 1.589715  |
+| specbzip1      | 64            | 128           | 512          | 4        | 2        | 64        | 10.505625 | 1.724184  |
+| specbzip2      | 64            | 128           | 512          | 4        | 2        | 128       | 13.005625 | 1.635832  |
+| specbzip3      | 64            | 128           | 2048         | 4        | 2        | 128       | 21.005625 | 1.594113  |
+| specbzip4      | 64            | 128           | 2048         | 4        | 4        | 128       | 21.631625 | 1.589715  |
+| specbzip5      | 128           | 128           | 4096         | 4        | 4        | 128       | 30.631625 | 1.556339  |
+| specmcf0      | 32            | 64            | 512          | 1        | 2        | 64        | 6.305625  | 1.185033  |
+| specmcf1      | 64            | 128           | 512          | 2        | 2        | 64        | 9.005625  | 1.185033  |
+| specmcf2      | 64            | 128           | 512          | 2        | 4        | 128       | 12.131625 | 1.179751  |
+| specmcf3      | 64            | 128           | 2048         | 2        | 4        | 128       | 20.131625 | 1.179751  |
+| spechmmer0      | 32            | 64            | 512          | 1        | 2        | 64        | 6.305625  | 1.176616  |
+| spechmmer1      | 64            | 128           | 512          | 1        | 2        | 64        | 9.005625  | 1.143930  |
+| spechmmer2      | 64            | 128           | 512          | 2        | 2        | 128       | 12.131625 | 1.118699  |
+| spechmmer3      | 64            | 128           | 512          | 2        | 4        | 128       | 14.131625 | 1.112977  |
 | sjeng0    | 32            | 64            | 512          | 1        | 2        | 64        | 6.305625  | 7.041210  |
 | sjeng1    | 64            | 128           | 512          | 1        | 2        | 64        | 9.005625  | 7.041210  |
 | sjeng2    | 64            | 128           | 512          | 2        | 4        | 128       | 12.131625 | 4.976535  |
 | sjeng3    | 64            | 128           | 2048         | 2        | 4        | 128       | 20.131625 | 4.974881  |
-
+ | specmcf | spechmmer | sjeng | speclibm
 ---
 
 Βέλτιστη Αρχιτεκτονική για Κάθε Benchmark
