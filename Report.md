@@ -322,7 +322,7 @@ Based on the results shown on the graphs and general information and knowledge r
 
 Η συνάρτηση κόστους που θα χρησιμοποιηθεί είναι:
 
-**Κόστος = (n1d / 16kB) + (n1i / 16kB) + (k1 / 2)^1.4 + (n2 / 256kB) + (k2 / 2)^1.3 + (c / 8B)**
+**Κόστος = (L1d Size / 16kB) + (L1i Size / 16kB) + (L1 Assoc / 2)^1.4 + (L2 Size / 256kB) + (L2 Assoc / 2)^1.3 + (Line Size / 8B)**
 
 ---
 
