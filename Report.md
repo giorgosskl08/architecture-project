@@ -278,23 +278,21 @@ Resources:
           system.clk_domain.clock                          1000                       # Clock period in ticks
           ```
 
-  We can deduce the following for the default frequency:
-  
-      Default Frequency
+    We can deduce the following for the default frequency:
+    
+    - Default Frequency
       - CPU Clock (500 ticks): The processor is clocked at \( \text{1 / (500 ticks)} = 2 \, \text{GHz} \).
       - System Clock (1000 ticks): The rest of the system is clocked at \( \text{1 / (1000 ticks)} = 1 \, \text{GHz} \).
-      
-      1GHz Configuration
+    - 1GHz Configuration
       - CPU Clock (1000 ticks): The processor is clocked at \( \text{1 / (1000 ticks)} = 1 \, \text{GHz} \).
       - System Clock (1000 ticks): The rest of the system remains clocked at \( 1 \, \text{GHz} \).
-      
-      3GHz Configuration
+    - 3GHz Configuration
       - CPU Clock (333 ticks): The processor is clocked at \( \text{1 / (333 ticks)} \approx 3 \, \text{GHz} \).
       - System Clock (1000 ticks): The rest of the system remains at \( 1 \, \text{GHz} \).
-
-  We can also deduce that when the frequency is changed, only the system CPU clock is affected, while the system clock remains at its default value. This behavior can be explained by considering that the system clock synchronizes all the components of the computer, while the CPU clock is dedicated solely to the processor.
-  Adding another processor introduces a new CPU clock specific to that processor. This means the new CPU operates independently with its own clock frequency, which can be adjusted separately from the existing processor.
-  Based on the execution times, we can observe that as the frequency increases, the execution time decreases. However, the decrease in execution time is not proportional to the changes in the CPU clock. There is no perfect scaling with respect to execution time because the relationship between the CPU clock frequency and execution time is not one-to-one. Execution time cannot decrease easily by modifying just one system parameter; it is also influenced by many other factors.
+        
+    We can also deduce that when the frequency is changed, only the system CPU clock is affected, while the system clock remains at its default value. This behavior can be explained by considering that the system clock synchronizes all the components of the computer, while the CPU clock is dedicated solely to the processor.
+    Adding another processor introduces a new CPU clock specific to that processor. This means the new CPU operates independently with its own clock frequency, which can be adjusted separately from the existing processor.
+    Based on the execution times, we can observe that as the frequency increases, the execution time decreases. However, the decrease in execution time is not proportional to the changes in the CPU clock. There is no perfect scaling with respect to execution time because the relationship between the CPU clock frequency and execution time is not one-to-one. Execution time cannot decrease easily by modifying just one system parameter; it is also influenced by many other factors.
 
 4. Changing the memory type from `DDR3_1600_x64` to `DDR3_2133_8x8` to the specmcf benchmark there seems to be a slight decreament in the simulated time:
    ``` 
