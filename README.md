@@ -1,12 +1,5 @@
 # Advanced Computer Architecture Project
 
-## Table of Contents 
-- [Advanced Computer Architecture Project - Part 1](#Advanced Computer Architecture Project - Part 1)
-- [Advanced Computer Architecture Project - Part 2](#Advanced Computer Architecture Project - Part 2)
-- [Bibliography](#Bibliography)
-
-
-
 ## Advanced Computer Architecture Project - Part 1
 
 1. Based on the contents of the `starter_se.py` file, assumptions regarding the characteristics that have been passed to gem5 after running the `HelloWorld` program can be made. More specifically:
