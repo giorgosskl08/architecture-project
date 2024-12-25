@@ -319,6 +319,10 @@ Based on the results shown on the graphs and general information and knowledge r
 
 ### STEP 3 ###
 
+Η συνάρτηση κόστους μπορεί να οριστεί ως εξής:
+
+Κόστος = 5 * (Μέγεθος L1) + 2 * (Μέγεθος L2) + 1 * (Associativity) + 2 * (Cache Line Size)
+
 
 ## Βibliography
 - https://stackoverflow.com/questions/58554232/what-is-the-difference-between-the-gem5-cpu-models-and-which-one-is-more-accurat
