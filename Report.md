@@ -6,7 +6,7 @@
       parser.add_argument("--cpu", type=str, choices=list(cpu_types.keys()),
                         default="atomic"
       ```  
-      The final value though is determined by the argument in the terminal command `--cpu="minor"`. This means that the cache classes are the ones defined in `starter_se.py` for the "minor" type.
+      The final value, though, is determined by the argument in the terminal command `--cpu="minor". This means that the cache classes for the "minor" type are the ones defined in starter_se.py.
    * **Operational Frequency = 1GHz** :
       ```python
       parser.add_argument("--cpu-freq", type=str, default="1GHz")
@@ -38,19 +38,19 @@
                         default="2GB",
                         help="Specify the physical memory size")
         ```  
-2. The following are information dirived from the `stats.txt`, `config.ini` and `config.json` files after running this command:
+2. The following is information derived from the `stats.txt`, `config.ini`, and `config.json` files after running this command:
 
         
            $ ./build/ARM/gem5.opt -d hello_result configs/example/arm/starter_se.py --cpu="minor" "tests/test-progs/hello/bin/arm/linux/hello"
         
 
    a. 
-      * Based on the `config.ini` file the cpu-type is "minor"
+      * Based on the `config.ini` file the CPU-type is "minor"
           ```
              [system.cpu_cluster.cpus]
              type=MinorCPU
           ```
-         Although as mentioned in part 1. the default value, defined in `starter_se.py`, for the cpu-type is "atomic", the final value is determined by the argument in the above command `--cpu="minor"`.
+         Although as mentioned in part 1. the default value, defined in `starter_se.py`, for the CPU-type is "atomic", the final value is determined by the argument in the above command `--cpu="minor"`.
       * from `statistics.txt` the operational frequency is 1GHZ as expected
          ```
           sim_freq                                 1000000000000                       # Frequency of simulated ticks
@@ -83,13 +83,13 @@
        system.cpu_cluster.cpus.committedOps             5831                       # Number of ops (including micro ops) committed
 
      
-   The reason that they are not equal is that "committedInsts" is the architectural number of assembly instructions executed while "commmittedOps" is the number of micro-operations. Each instruction can expand to multiple microoperations, so this number is always greater or equal than committedInsts.
+   The reason that they are not equal is that "committedInsts" is the architectural number of assembly instructions executed while "commmittedOps" is the number of micro-operations. Each instruction can expand to multiple microoperations, so this number is always greater or equal to committedInsts.
 
     The number of instructions simulated is again 5027:
     
         sim_insts                                        5027                       # Number of instructions simulated
 
-    The fact that the simulated instructions and committed instruction are the same signifies that all instructions are committed. An instruction commits only if it and all instructions before it have completed successfully.
+    The fact that the simulated instructions and committed instruction are the same signifies that all instructions are committed. An instruction commits only if it and all instructions before it have been completed successfully.
        
 
    d.  from `starter_se.py` and because the type of the CPU is "minor" the L2 Cache class is "devices.L2".
@@ -114,7 +114,7 @@
      i. SimpleCPU:  
       * BaseSimpleCPU: 
 
-    > This version of SimpleCPU is a single cycle CPU which means it can execute only one instruction in a cycle. It can be inheritedd by AtomicSimpleCPU and TimingSimpleCPU. It can not be run on its own. One of the inheriting classes, either AtomicSimpleCPU or TimingSimpleCPU must be used. BaseSimpleCPU defines functions, common for SimpleCPU models, for checking for interupts, controling set ups and actions and advancing the PC into the next instuction, holding the architected state. It is also responsible for the ExecContext interface which is used by the instructions to access the CPU.
+    > This version of SimpleCPU is a single-cycle CPU which means it can execute only one instruction in a cycle. It can be inherited by AtomicSimpleCPU and TimingSimpleCPU. It can not be run on its own. One of the inheriting classes, either AtomicSimpleCPU or TimingSimpleCPU must be used. BaseSimpleCPU defines functions, common for SimpleCPU models, for checking for interrupts, controlling setups and actions, and advancing the PC into the next instruction, holding the architected state. It is also responsible for the ExecContext interface which is used by the instructions to access the CPU.
  
       * AtomicSimpleCPU:
      
@@ -122,10 +122,10 @@
        
       * TimingSimpleCPU:
 
-    >This version of SimpleCPU uses timing memory accesses. Timing accesses are the most detailed access but they lack in speed (delay). With the sending of a request function at some time, a response function or a number of functions are scheduled at some time in the future to be executed. It derives from BaseSimpleCPU and and implements the same set of functions as the aforementioned model, AtomicSimpleCPU. It is responsible for the handling of the response from the memory to the accesses sent out.  If the response is a NACK the procedure gets repeated. It, finally, defines the port that is used to hook up to memory, and connects the CPU to the cache.
+    >This version of SimpleCPU uses timing memory accesses. Timing accesses are the most detailed access but they lack in speed (delay). With the sending of a request function at some time, a response function or a number of functions are scheduled at some time in the future to be executed. It derives from BaseSimpleCPU and and implements the same set of functions as the aforementioned model, AtomicSimpleCPU. It is responsible for handling the response from memory to the accesses sent out.  If the response is a NACK the procedure gets repeated. It, finally, defines the port that is used to hook up to memory and connects the CPU to the cache.
       
     ii. Minor CPU:
-    >This in-order processor model has a standar pipeline, but its data structures and execute behaviour are configurable. It provides a framework to match the model with a similar processor on a micro-architectural level which has strict in-order execution behaviour and visualises the position of an instruction in the pipeline using the MinorTrace/minorview.py format/too. 
+    >This in-order processor model has a standard pipeline, but its data structures and execute behavior are configurable. It provides a framework to match the model with a similar processor on a micro-architectural level which has strict in-order execution behavior and visualizes the position of an instruction in the pipeline using the MinorTrace/minorview.py format/too. 
 
    a. Commands for the `fibonacci.c` file:
 
@@ -149,17 +149,17 @@
         ```
 
    b. Comparing the simulations run with MinorCPU and TimingSimpleCPU we noticed the following:
-     * Differencies:  
+     * Differences:  
        * host_seconds: 0.02 for TimingSimpleCPU and 0.09 for MinorCPU  
        * sim_seconds: 0.000046 for TimingSimpleCPU and 0,000037 for MinorCPU  
        * Number of indirect misses: 137 for MinorCPU and it is not mentioned for TimingSimpleCPU  
      * Similarities:
        * sim_freq: 1000000000000 for both CPUs
        * host_mem_usage: 674144 for TimingSimpleCPU and 678756 for MinorCPU
-       * Number of instructions commited: 13196 for TimingSimpleCPU and 13249 for MinorCPU  
+       * Number of instructions committed: 13196 for TimingSimpleCPU and 13249 for MinorCPU  
     
-    The differencies are mostly related to time. They are justified considering the fact that TimingSimpleCPU lacks in speed in comparison to MinorCPU.  
-    The similarities are also justified because they concern a) the frequency which is determined by us, b) the memory used by the host and the number of instructions commited which depend on our program and are not influenced by the CPU.
+    The differences are mostly related to time. They are justified considering the fact that TimingSimpleCPU lacks speed in comparison to MinorCPU.  
+    The similarities are also justified because they concern a) the frequency which is determined by us, b) the memory used by the host, and the number of instructions committed which depend on our program and are not influenced by the CPU.
 
    c. Changed parameters and comparison of the 2 CPU models:
    
@@ -168,7 +168,7 @@
           ```
           $ ./build/ARM/gem5.opt -d fib_results_TimingSimpleCPULPDDR2_S4_1066_1x32 configs/example/se.py --cpu-type=MinorCPU --mem-type=LPDDR2_S4_1066_1x32 --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
           ```
-          * There is a small increment in the time of execution for while using the "LPDDR2_S4_1066_1x32" memory type. Number of seconds simulated before = 0.000046 and after = 0.000047. 
+          * There is a small increment in the time of execution while using the "LPDDR2_S4_1066_1x32" memory type. Number of seconds simulated before = 0.000046 and after = 0.000047. 
           * Also a decrement in the instruction rate is noticed: Simulator instruction rate before=573016  and after=285477. 
         * For the MinorCPU we used the "SimpleMemory" memory type:
           ```
@@ -176,7 +176,7 @@
           ```
            * The instruction rate has increased a lot in with the use of the "SimpleMemory" type. Specifically, simulator instruction rate before=147368  and after=335773.
            * The simulated time seems to be slighttly decreased. Number of seconds simulated before = 0.000037 and after = 0.000030. 
-           * Finally this memory type seems to have an small affect on the indirect misses since they are increased by 1.
+           * Finally this memory type seems to have a small affect on the indirect misses since they are increased by 1.
 
       * Different Operational Frequency:
          * For the TimingSimpleCPU we set the frequency to 4GHz:
@@ -281,7 +281,7 @@ Resources:
     We can deduce the following for the default frequency:
     
     - Default Frequency
-      - CPU Clock (500 ticks): The processor is clocked at \( \text{1 / (500 ticks)} = 2 \, \text{GHz} \).
+      - CPU Clock (500 ticks): The processor is clocked at \( \frac{1}{500} \approx 2 \, \text{GHz}.
       - System Clock (1000 ticks): The rest of the system is clocked at \( \text{1 / (1000 ticks)} = 1 \, \text{GHz} \).
     - 1GHz Configuration
       - CPU Clock (1000 ticks): The processor is clocked at \( \text{1 / (1000 ticks)} = 1 \, \text{GHz} \).
@@ -290,11 +290,11 @@ Resources:
       - CPU Clock (333 ticks): The processor is clocked at \( \text{1 / (333 ticks)} \approx 3 \, \text{GHz} \).
       - System Clock (1000 ticks): The rest of the system remains at \( 1 \, \text{GHz} \).
         
-    We can also deduce that when the frequency is changed, only the system CPU clock is affected, while the system clock remains at its default value. This behavior can be explained by considering that the system clock synchronizes all the components of the computer, while the CPU clock is dedicated solely to the processor.
+    We can also deduce that when the frequency is changed, only the system CPU clock is affected, while the system clock remains at its default value. This behavior can be explained by considering that the system clock synchronizes all the computer's components, while the CPU clock is dedicated solely to the processor.
     Adding another processor introduces a new CPU clock specific to that processor. This means the new CPU operates independently with its own clock frequency, which can be adjusted separately from the existing processor.
     Based on the execution times, we can observe that as the frequency increases, the execution time decreases. However, the decrease in execution time is not proportional to the changes in the CPU clock. There is no perfect scaling with respect to execution time because the relationship between the CPU clock frequency and execution time is not one-to-one. Execution time cannot decrease easily by modifying just one system parameter; it is also influenced by many other factors.
 
-4. Changing the memory type from `DDR3_1600_x64` to `DDR3_2133_8x8` to the specmcf benchmark there seems to be a slight decreament in the simulated time:
+4. Changing the memory type from `DDR3_1600_x64` to `DDR3_2133_8x8` to the specmcf benchmark there seems to be a slight decrease in the simulated time:
    ``` 
       sim_seconds                                  0.064955                       # Number of seconds simulated
       sim_seconds                                  0.064892                       # Number of seconds simulated
@@ -319,8 +319,9 @@ Resources:
 ![speclibm](https://github.com/user-attachments/assets/1e2d67d4-4a6a-4099-8ab1-86f168e9c0e0)
 
 
-
-
-
+Based on the results shown on the graphs and general information and knowledge regarding the CPI we extracted the following conclusions:
+- Cache Size: Larger L1 and L2 caches help benchmarks with larger working sets by reducing memory misses.
+- Associativity: Benchmarks with higher conflict misses benefit from increased associativity.
+- Cache Line Size: Benchmarks with sequential memory access patterns benefit greatly from increased cache line size.
 
 
