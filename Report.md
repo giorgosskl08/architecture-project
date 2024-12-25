@@ -234,4 +234,16 @@ Resources:
    | L1 Data cache miss rates | 0.014798 | 0.002109 | 0.001637 | 0.121831 | 0.060972 |
    | L2 cache miss rates | 0.282163 | 0.055046 | 0.077760 | 0.999972 | 0.999944 |
 
-    
+   
+    ![execution_time](https://github.com/user-attachments/assets/58911035-7e6e-46b1-be0e-cb1488eddd58)
+
+    ![cpi](https://github.com/user-attachments/assets/efb0d3c9-f5d1-4a1b-8552-8564d158a73e)
+
+   ![icache](https://github.com/user-attachments/assets/6a2bd62e-9f50-4899-b155-4573528f11e5)
+
+    ![dcache](https://github.com/user-attachments/assets/ce067f71-b390-4b71-822f-f8916712524e)
+
+   ![l2cache](https://github.com/user-attachments/assets/34579404-e692-484d-b5d3-c0bf77a7a266)
+
+
+
