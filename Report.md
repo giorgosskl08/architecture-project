@@ -51,7 +51,7 @@
              type=MinorCPU
           ```
          Although as mentioned in part 1. the default value, defined in `starter_se.py`, for the CPU-type is "atomic", the final value is determined by the argument in the above command `--cpu="minor"`.
-      * from `statistics.txt` the operational frequency is 1GHZ as expected
+      * from `stats.txt` the operational frequency is 1GHZ as expected
          ```
           sim_freq                                 1000000000000                       # Frequency of simulated ticks
          ```
@@ -75,7 +75,7 @@
       * sim_insts: the number of instructions that were simulated
       * host_inst_rate: the rate of instructions simulated per second
 
-   c. From `statistics.txt` the number of committed instructions is 5027 and of committed operations is 5831.
+   c. From `stats.txt` the number of committed instructions is 5027 and of committed operations is 5831.
 
        
        system.cpu_cluster.cpus.committedInsts           5027                       # Number of instructions committed
@@ -93,7 +93,7 @@
        
 
    d.  from `starter_se.py` and because the type of the CPU is "minor" the L2 Cache class is "devices.L2".
-       From `statistics.txt` the L2 accesses are the following:
+       From `stats.txt` the L2 accesses are the following:
 
        
        system.cpu_cluster.l2.overall_accesses::.cpu_cluster.cpus.inst          327                       # number of overall (read+write) accesses
@@ -186,7 +186,7 @@
             ```
             $ ../build/ARM/gem5.opt -d fib_results_MinorCPU4GHz configs/example/se.py --cpu-type=MinorCPU --cpu-clock=4GHz --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
              ```
-          The operational frequency refers to the processor's operational clock cycles per second. This means that by increasing the frequency the execution must be faster. We can confirm that by the results on the `statistics.txt` file. More specifically we observed subduplication of the total simulated time in both CPU models with the quadruplication of the operational frequency.
+          The operational frequency refers to the processor's operational clock cycles per second. This means that by increasing the frequency the execution must be faster. We can confirm that by the results on the `stats.txt` file. More specifically we observed subduplication of the total simulated time in both CPU models with the quadruplication of the operational frequency.
 
         
 
