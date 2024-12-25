@@ -197,6 +197,8 @@ Resources:
 
 # Advanced Computer Architecture Project - Part 2
 
+### STEP 1 ###
+ 
 1. The basic parameters derived from `config.ini`:
      - L1 instruction cache:
        ```
@@ -234,4 +236,74 @@ Resources:
    | L1 Data cache miss rates | 0.014798 | 0.002109 | 0.001637 | 0.121831 | 0.060972 |
    | L2 cache miss rates | 0.282163 | 0.055046 | 0.077760 | 0.999972 | 0.999944 |
 
+   
+   ![execution_time](https://github.com/user-attachments/assets/58911035-7e6e-46b1-be0e-cb1488eddd58)
+
+   ![cpi](https://github.com/user-attachments/assets/efb0d3c9-f5d1-4a1b-8552-8564d158a73e)
+
+   ![icache](https://github.com/user-attachments/assets/6a2bd62e-9f50-4899-b155-4573528f11e5)
+
+   ![dcache](https://github.com/user-attachments/assets/ce067f71-b390-4b71-822f-f8916712524e)
+
+   ![l2cache](https://github.com/user-attachments/assets/34579404-e692-484d-b5d3-c0bf77a7a266)
+
+   From the graphs, we observe that the Execution Time and CPI are higher for the `sjeng` and `speclbm` benchmarks. This occurs because these two benchmarks are the only ones with high miss rates in both the L1 data cache and L2 cache. When the processor cannot find the requested data in the L1 or L2 cache (resulting in a cache miss), it must fetch the data from the main memory, which takes significantly longer. This delay increases the execution time. The time wasted waiting for data to be fetched from main memory also increases the number of cycles needed to execute instructions, leading to a higher CPI.
+
+3. For all benchmarks the values were equal with the changes in the frequency:
+     * Default frequency
+         * System cpu clock
+          ```python 
+          system.cpu_clk_domain.clock                       500                       # Clock period in ticks
+          ```
+         * System clock
+          ```python 
+          system.clk_domain.clock                          1000                       # Clock period in ticks
+          ```
+      * 1GHz
+         * System cpu clock
+          ```python 
+          system.cpu_clk_domain.clock                       1000                       # Clock period in ticks
+          ```
+         * System clock
+          ```python 
+          system.clk_domain.clock                          1000                       # Clock period in ticks
+          ```
+      * 3GHz
+         * System cpu clock
+          ```python 
+          system.cpu_clk_domain.clock                       333                       # Clock period in ticks
+          ```
+         * System clock
+          ```python 
+          system.clk_domain.clock                          1000                       # Clock period in ticks
+          ```
+
+    We can deduce the following for the default frequency:
     
+    - Default Frequency
+      - CPU Clock (500 ticks): The processor is clocked at \( \text{1 / (500 ticks)} = 2 \, \text{GHz} \).
+      - System Clock (1000 ticks): The rest of the system is clocked at \( \text{1 / (1000 ticks)} = 1 \, \text{GHz} \).
+    - 1GHz Configuration
+      - CPU Clock (1000 ticks): The processor is clocked at \( \text{1 / (1000 ticks)} = 1 \, \text{GHz} \).
+      - System Clock (1000 ticks): The rest of the system remains clocked at \( 1 \, \text{GHz} \).
+    - 3GHz Configuration
+      - CPU Clock (333 ticks): The processor is clocked at \( \text{1 / (333 ticks)} \approx 3 \, \text{GHz} \).
+      - System Clock (1000 ticks): The rest of the system remains at \( 1 \, \text{GHz} \).
+        
+    We can also deduce that when the frequency is changed, only the system CPU clock is affected, while the system clock remains at its default value. This behavior can be explained by considering that the system clock synchronizes all the components of the computer, while the CPU clock is dedicated solely to the processor.
+    Adding another processor introduces a new CPU clock specific to that processor. This means the new CPU operates independently with its own clock frequency, which can be adjusted separately from the existing processor.
+    Based on the execution times, we can observe that as the frequency increases, the execution time decreases. However, the decrease in execution time is not proportional to the changes in the CPU clock. There is no perfect scaling with respect to execution time because the relationship between the CPU clock frequency and execution time is not one-to-one. Execution time cannot decrease easily by modifying just one system parameter; it is also influenced by many other factors.
+
+4. Changing the memory type from `DDR3_1600_x64` to `DDR3_2133_8x8` to the specmcf benchmark there seems to be a slight decreament in the simulated time:
+   ``` 
+      sim_seconds                                  0.064955                       # Number of seconds simulated
+      sim_seconds                                  0.064892                       # Number of seconds simulated
+    ```
+   which is expected since the second memory type has a quicker clock. We, also observe that the cycles simulated are also decreased:
+   ```
+       system.cpu.numCycles                        129909477                       # number of cpu cycles simulated
+       system.cpu.numCycles                        129784377                       # number of cpu cycles simulated
+   ```
+   
+
+### STEP 2 ###
