@@ -172,9 +172,9 @@
           * Also a decrement in the instruction rate is noticed: Simulator instruction rate before=573016  and after=157590. 
         * For the MinorCPU we used the "SimpleMemory" memory type:
           ```
-           $ ./build/ARM/gem5.opt -d fib_results_MinorCPUNonCachingSimpleCPU configs/example/se.py --cpu-type=MinorCPU --mem-type=SimpleMemory --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
+           $ ./build/ARM/gem5.opt -d fib_results_MinorCPUNonCachingSimpleCPU configs/example/se.py --cpu-type=NonCachingSimpleCPU --mem-type=SimpleMemory --caches -c tests/test-progs/hello/bin/arm/linux/fibonacci
           ```
-           * The instruction rate has decreased with the use of the "NonCachingSimpleCPU" type. Specifically, simulator instruction rate before=147368  and after=1369757.
+           * The instruction rate has decreased with the use of the "NonCachingSimpleCPU" type. Specifically, simulator instruction rate before=147368 and after=1369757.
            * The simulated time seems to be decreased. Number of seconds simulated before = 0.000037 and after = 0.000009.
 
       * Different Operational Frequency:
