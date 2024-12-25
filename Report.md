@@ -281,14 +281,14 @@ Resources:
     We can deduce the following for the default frequency:
     
     - Default Frequency
-      - CPU Clock (500 ticks): The processor is clocked at \( \frac{1}{500} \approx 2 \, \text{GHz}.
-      - System Clock (1000 ticks): The rest of the system is clocked at \( \text{1 / (1000 ticks)} = 1 \, \text{GHz} \).
+      - CPU Clock (500 ticks): The processor is clocked at 1/500 = 2 GHz.
+      - System Clock (1000 ticks): The rest of the system is clocked at 1/1000 ticks = 1 GHz.
     - 1GHz Configuration
-      - CPU Clock (1000 ticks): The processor is clocked at \( \text{1 / (1000 ticks)} = 1 \, \text{GHz} \).
-      - System Clock (1000 ticks): The rest of the system remains clocked at \( 1 \, \text{GHz} \).
+      - CPU Clock (1000 ticks): The processor is clocked at 1 / (1000 ticks) = 1 GHz.
+      - System Clock (1000 ticks): The rest of the system remains clocked at 1 GHz.
     - 3GHz Configuration
-      - CPU Clock (333 ticks): The processor is clocked at \( \text{1 / (333 ticks)} \approx 3 \, \text{GHz} \).
-      - System Clock (1000 ticks): The rest of the system remains at \( 1 \, \text{GHz} \).
+      - CPU Clock (333 ticks): The processor is clocked at 1 / (333 ticks)= 3 GHz.
+      - System Clock (1000 ticks): The rest of the system remains at 1 GHz.
         
     We can also deduce that when the frequency is changed, only the system CPU clock is affected, while the system clock remains at its default value. This behavior can be explained by considering that the system clock synchronizes all the computer's components, while the CPU clock is dedicated solely to the processor.
     Adding another processor introduces a new CPU clock specific to that processor. This means the new CPU operates independently with its own clock frequency, which can be adjusted separately from the existing processor.
@@ -319,7 +319,7 @@ Resources:
 ![speclibm](https://github.com/user-attachments/assets/1e2d67d4-4a6a-4099-8ab1-86f168e9c0e0)
 
 
-Based on the results shown on the graphs and general information and knowledge regarding the CPI we extracted the following conclusions:
+Based on the results shown on the graphs and general information and knowledge regarding the CPI we can extract the following conclusions:
 - Cache Size: Larger L1 and L2 caches help benchmarks with larger working sets by reducing memory misses.
 - Associativity: Benchmarks with higher conflict misses benefit from increased associativity.
 - Cache Line Size: Benchmarks with sequential memory access patterns benefit greatly from increased cache line size.
