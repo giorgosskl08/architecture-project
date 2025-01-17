@@ -277,13 +277,13 @@
     We can deduce the following for the default frequency:
     
     - Default Frequency
-      - CPU Clock (500 ticks): The processor is clocked at 1/500 = 2 GHz.
+      - CPU Clock (500 ticks): The processor is clocked at 10^12/500 = 2 GHz.
       - System Clock (1000 ticks): The rest of the system is clocked at 1/1000 ticks = 1 GHz.
     - 1GHz Configuration
-      - CPU Clock (1000 ticks): The processor is clocked at 1 / (1000 ticks) = 1 GHz.
+      - CPU Clock (1000 ticks): The processor is clocked at 10^12 / (1000 ticks) = 1 GHz.
       - System Clock (1000 ticks): The rest of the system remains clocked at 1 GHz.
     - 3GHz Configuration
-      - CPU Clock (333 ticks): The processor is clocked at 1 / (333 ticks)= 3 GHz.
+      - CPU Clock (333 ticks): The processor is clocked at 10^12 / (333 ticks)= 3 GHz.
       - System Clock (1000 ticks): The rest of the system remains at 1 GHz.
         
     We can also deduce that when the frequency is changed, only the system CPU clock is affected, while the system clock remains at its default value. This behavior can be explained by considering that the system clock synchronizes all the computer's components, while the CPU clock is dedicated solely to the processor.
